@@ -60,3 +60,21 @@ const TambahDanDaftarTugas = () => {
     await deleteDoc(doc(db, 'toDoList', id));
     setTasks(tasks.filter(task => task.id !== id));
   };
+
+  /**
+   * Memperbarui tugas di Firestore berdasarkan ID dan memperbarui state `tasks`.
+   * @param {string} id - ID tugas yang akan diperbarui.
+   * @param {Partial<Task>} updatedTask - Objek tugas yang diperbarui.
+   */
+  const handleUpdateTask = async (id: string, updatedTask: Partial<Task>) => {
+    await updateDoc(doc(db, 'toDoList', id), updatedTask);
+    setTasks(tasks.map(task => (task.id === id ? { ...task, ...updatedTask } : task)));
+  };
+
+  /**
+   * Memulai proses pengeditan tugas dengan mengatur tugas yang dipilih ke state `editingTask`.
+   * @param {Task} task - Tugas yang akan diedit.
+   */
+  const handleEditTask = (task: Task) => {
+    setEditingTask(task);
+  };
