@@ -118,3 +118,31 @@ const TambahDanDaftarTugas = () => {
    */
   const completedTasks = sortedTasks.filter(task => task.status);
   const incompleteTasks = sortedTasks.filter(task => !task.status);
+
+  return (
+    <div className={`min-h-screen h-full flex flex-col ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
+      {/* Header */}
+      <header className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-6 px-4 sm:px-8 shadow-lg">
+        <div className="flex justify-between items-center">
+          <h1 className="text-4xl font-bold text-center font-sans tracking-wide font-serif italic">
+            Taskly
+          </h1>
+          <button
+            onClick={toggleDarkMode}
+            className="bg-gray-800 text-white px-4 py-2 rounded shadow-md hover:bg-gray-700 dark:bg-gray-200 dark:text-black dark:hover:bg-gray-300 flex items-center justify-center"
+          >
+            {isDarkMode ? (
+              <span role="img" aria-label="Sun" className="text-yellow-500 text-xl">
+                ☀️
+              </span>
+            ) : (
+              <span role="img" aria-label="Moon" className="text-gray-500 text-xl">
+                🌙
+              </span>
+            )}
+          </button>
+        </div>
+        <p className="text-center text-sm mt-2 font-light">
+          Kelola tugas Anda dengan mudah dan efisien
+        </p>
+      </header>
