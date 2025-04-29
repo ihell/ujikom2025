@@ -193,4 +193,29 @@ const TambahDanDaftarTugas = () => {
               required
             />
           </div>
+          <div>
+            <label
+              className={`block text-sm font-bold mb-2 ${
+                isDarkMode ? 'text-orange-500' : 'text-gray-700'
+              }`}
+              htmlFor="prioritas"
+            >
+              Prioritas
+            </label>
+            <select
+              className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:ring-2 ${
+                isDarkMode
+                  ? 'border-orange-500 bg-black text-gray-300 focus:ring-orange-500'
+                  : 'border-gray-300 bg-white text-black focus:ring-gray-500'
+              }`}
+              id="prioritas"
+              name="prioritas"
+              defaultValue={editingTask ? editingTask.prioritas : ''}
+              required
+            >
+              <option value="Tinggi">Tinggi</option>
+              <option value="Sedang">Sedang</option>
+              <option value="Rendah">Rendah</option>
+            </select>
+          </div>
         
