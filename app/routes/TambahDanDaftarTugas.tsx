@@ -104,3 +104,17 @@ const TambahDanDaftarTugas = () => {
       </div>
     );
   }
+
+  /**
+   * Mengurutkan tugas berdasarkan prioritas (Tinggi di atas Rendah).
+   */
+  const sortedTasks = tasks.sort((a, b) => {
+    if (a.prioritas === b.prioritas) return 0;
+    return a.prioritas === 'Tinggi' ? -1 : 1;
+  });
+
+  /**
+   * Memisahkan tugas yang sudah selesai dan belum selesai.
+   */
+  const completedTasks = sortedTasks.filter(task => task.status);
+  const incompleteTasks = sortedTasks.filter(task => !task.status);
