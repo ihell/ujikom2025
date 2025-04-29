@@ -168,4 +168,29 @@ const TambahDanDaftarTugas = () => {
           className={`space-y-6 p-6 rounded-lg shadow-md ${
             isDarkMode ? 'bg-gray-800 text-gray-300' : 'bg-white text-black'
           }`}
-        ></form>
+        >
+           {/* Form fields */}
+           <div>
+            <label
+              className={`block text-sm font-bold mb-2 ${
+                isDarkMode ? 'text-orange-500' : 'text-gray-700'
+              }`}
+              htmlFor="nama"
+            >
+              Nama Tugas
+            </label>
+            <input
+              className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:ring-2 ${
+                isDarkMode
+                  ? 'border-orange-500 bg-black text-gray-300 focus:ring-orange-500'
+                  : 'border-gray-300 bg-white text-black focus:ring-gray-500'
+              }`}
+              id="nama"
+              type="text"
+              placeholder="Nama Tugas"
+              name="nama"
+              defaultValue={editingTask ? editingTask.nama : ''}
+              required
+            />
+          </div>
+        
