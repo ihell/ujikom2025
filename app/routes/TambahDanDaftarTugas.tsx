@@ -23,3 +23,19 @@ const TambahDanDaftarTugas = () => {
       setIsDarkMode(!isDarkMode);
       document.documentElement.classList.toggle('dark', !isDarkMode);
     };
+
+  /**
+   * Mengambil data tugas dari Firestore saat komponen pertama kali dimuat.
+   * Data yang diambil akan disimpan dalam state `tasks`.
+   */
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const tasksCollection = collection(db, 'toDoList');
+      const tasksSnapshot = await getDocs(tasksCollection);
+      const tasksList = tasksSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Task));
+      setTasks(tasksList);
+      setLoading(false);
+    };
+
+    fetchTasks();
+  }, []);
