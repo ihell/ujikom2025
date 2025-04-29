@@ -218,4 +218,37 @@ const TambahDanDaftarTugas = () => {
               <option value="Rendah">Rendah</option>
             </select>
           </div>
-        
+          <div>
+            <label
+              className={`block text-sm font-bold mb-2 ${
+                isDarkMode ? 'text-orange-500' : 'text-gray-700'
+              }`}
+              htmlFor="tanggal"
+            >
+              Tanggal
+            </label>
+            <input
+              className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:ring-2 ${
+                isDarkMode
+                  ? 'border-orange-500 bg-black text-gray-300 focus:ring-orange-500'
+                  : 'border-gray-300 bg-white text-black focus:ring-gray-500'
+              }`}
+              id="tanggal"
+              type="date"
+              placeholder="Tanggal"
+              name="tanggal"
+              defaultValue={editingTask ? editingTask.tanggal : ''}
+              required
+            />
+          </div>
+          <button
+            className={`font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 w-full sm:w-auto ${
+              isDarkMode
+                ? 'bg-orange-500 hover:bg-orange-600 text-white focus:ring-orange-500'
+                : 'bg-orange-500 hover:bg-gray-900 text-white focus:ring-gray-500'
+            }`}
+            type="submit"
+          >
+            {editingTask ? 'Simpan Perubahan' : 'Tambah Tugas'}
+          </button>
+        </form>
