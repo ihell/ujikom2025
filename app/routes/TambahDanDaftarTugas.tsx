@@ -320,3 +320,35 @@ const TambahDanDaftarTugas = () => {
                 isDarkMode ? 'bg-gray-800 text-gray-300' : 'bg-white text-black'
               }`}
             >
+              {completedTasks.map((task, index) => (
+                <tr key={index} className="hover:bg-orange-500">
+                  <td className="py-3 px-4 border-b">{task.nama}</td>
+                  <td className="py-3 px-4 border-b">{task.prioritas}</td>
+                  <td className="py-3 px-4 border-b">{task.status ? 'Selesai' : 'Belum Selesai'}</td>
+                  <td className="py-3 px-4 border-b">{task.tanggal}</td>
+                  <td className="py-3 px-4 flex space-x-2">
+                    <button
+                      className="bg-orange-500 text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      onClick={() => handleUpdateTask(task.id, { status: !task.status })}
+                    >
+                      {task.status ? 'Tandai Belum Selesai' : 'Tandai Selesai'}
+                    </button>
+                    <button
+                      className="bg-yellow-500 text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                      onClick={() => handleEditTask(task)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="bg-red-500 text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
+                      onClick={() => handleDeleteTask(task.id)}
+                    >
+                      Hapus
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </main>
