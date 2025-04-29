@@ -78,3 +78,13 @@ const TambahDanDaftarTugas = () => {
   const handleEditTask = (task: Task) => {
     setEditingTask(task);
   };
+
+  /**
+   * Menyimpan perubahan tugas yang sedang diedit ke Firestore dan memperbarui state `tasks`.
+   */
+  const handleSaveEditTask = async () => {
+    if (editingTask) {
+      await handleUpdateTask(editingTask.id, editingTask);
+      setEditingTask(null);
+    }
+  };
