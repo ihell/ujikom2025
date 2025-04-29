@@ -352,3 +352,15 @@ const TambahDanDaftarTugas = () => {
           </table>
         </div>
       </main>
+
+          {/* Footer */}
+          <footer className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-4 px-4 sm:px-8 border-t border-orange-400">
+        <p className="text-center text-sm font-light">
+          &copy; 2025 Taskly. Semua Hak Dilindungi.
+        </p>
+      </footer>
+    </div>
+  );
+};
+
+export default TambahDanDaftarTugas;
