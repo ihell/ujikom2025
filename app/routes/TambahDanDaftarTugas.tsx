@@ -39,3 +39,24 @@ const TambahDanDaftarTugas = () => {
 
     fetchTasks();
   }, []);
+
+  /**
+   * Menambahkan tugas baru ke Firestore dan memperbarui state `tasks`.
+   * @param {string} nama - Nama tugas yang akan ditambahkan.
+   * @param {string} prioritas - Prioritas tugas (Tinggi/Rendah).
+   * @param {string} tanggal - Tanggal tugas.
+   */
+  const handleAddTask = async (nama: string, prioritas: string, tanggal: string) => {
+    const newTask = { nama, prioritas, status: false, tanggal };
+    const docRef = await addDoc(collection(db, 'toDoList'), newTask);
+    setTasks([...tasks, { id: docRef.id, ...newTask }]);
+  };
+
+  /**
+   * Menghapus tugas dari Firestore berdasarkan ID dan memperbarui state `tasks`.
+   * @param {string} id - ID tugas yang akan dihapus.
+   */
+  const handleDeleteTask = async (id: string) => {
+    await deleteDoc(doc(db, 'toDoList', id));
+    setTasks(tasks.filter(task => task.id !== id));
+  };
