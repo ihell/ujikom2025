@@ -302,3 +302,21 @@ const TambahDanDaftarTugas = () => {
             </tbody>
           </table>
         </div>
+
+        <h2 className="text-3xl font-bold text-orange-500 mt-10 mb-6 font-serif italic">Daftar Tugas Telah Selesai</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-gray-800 shadow-md rounded-lg overflow-hidden">
+            <thead className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-6 px-4 sm:px-8 shadow-lg">
+              <tr>
+                <th className="py-3 px-4 border-b text-white">Nama Tugas</th>
+                <th className="py-3 px-4 border-b text-white">Prioritas</th>
+                <th className="py-3 px-4 border-b text-white">Status</th>
+                <th className="py-3 px-4 border-b text-white">Tanggal</th>
+                <th className="py-3 px-4 border-b text-white">Aksi</th>
+              </tr>
+            </thead>
+            <tbody
+               className={`${
+                isDarkMode ? 'bg-gray-800 text-gray-300' : 'bg-white text-black'
+              }`}
+            >
