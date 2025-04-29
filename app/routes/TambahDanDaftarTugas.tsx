@@ -146,3 +146,26 @@ const TambahDanDaftarTugas = () => {
           Kelola tugas Anda dengan mudah dan efisien
         </p>
       </header>
+
+      {/* Main Content */}
+      <main className="flex-grow p-4 sm:p-6 overflow-y-auto">
+        <h1 className="text-3xl font-bold text-orange-500 mb-6 font-serif italic">Tambah Tugas</h1>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            const form = e.target as HTMLFormElement;
+            const nama = (form.elements.namedItem('nama') as HTMLInputElement).value;
+            const prioritas = (form.elements.namedItem('prioritas') as HTMLSelectElement).value;
+            const tanggal = (form.elements.namedItem('tanggal') as HTMLInputElement).value;
+            if (editingTask) {
+              setEditingTask({ ...editingTask, nama, prioritas, tanggal });
+              handleSaveEditTask();
+            } else {
+              handleAddTask(nama, prioritas, tanggal);
+            }
+            form.reset();
+          }}
+          className={`space-y-6 p-6 rounded-lg shadow-md ${
+            isDarkMode ? 'bg-gray-800 text-gray-300' : 'bg-white text-black'
+          }`}
+        ></form>
